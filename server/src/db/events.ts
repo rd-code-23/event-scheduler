@@ -14,9 +14,9 @@ export function getById(id: string): Event | undefined {
 
 export function deleteEvent(id: string): boolean {
     const indexToRemove = events.findIndex(event => event.id === id);
-
-    events.splice(indexToRemove, 1)
-    return true
+    if (indexToRemove === -1) return false;  
+    events.splice(indexToRemove, 1);
+    return true;
 }
 
 export function create(title: string, startTimeUTC: string): Event {
