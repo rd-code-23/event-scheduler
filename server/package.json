@@ -1,10 +1,12 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "ts": "node --loader ts-node/esm src/utils/dateUtils.ts"
   },
   "keywords": [],
   "author": "",
