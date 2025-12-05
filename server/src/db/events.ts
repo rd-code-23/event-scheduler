@@ -4,22 +4,22 @@ import { Event } from '../types/index'
 const events: Event[] = [];
 
 
-export function getAll(): Event[] {
+export function getAllFromDB(): Event[] {
     return events
 }
 
-export function getById(id: string): Event | undefined {
+export function getByIdFromDB(id: string): Event | undefined {
     return events.find(event => id === event.id)
 }
 
-export function deleteEvent(id: string): boolean {
+export function deleteEventFromDB(id: string): boolean {
     const indexToRemove = events.findIndex(event => event.id === id);
     if (indexToRemove === -1) return false;  
     events.splice(indexToRemove, 1);
     return true;
 }
 
-export function create(title: string, startTimeUTC: string): Event {
+export function createFromDB(title: string, startTimeUTC: string): Event {
     const newEvent: Event = {
         id: crypto.randomUUID(), // todo add in notes
         title,
