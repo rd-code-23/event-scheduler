@@ -16,8 +16,14 @@ export const getEventsQuerySchema = z.object({
   }
 );
 
+export const deleteEventSchema = z.object({
+  id: z.uuid()
+});
+
 export type CreateEventInput = z.infer<typeof createEventSchema>;
 
 export type GetEventsQueryInput = z.infer<typeof getEventsQuerySchema>;
+
+export type DeleteEventsInput = z.infer<typeof deleteEventSchema>;
 
 
