@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec tsx src/index.ts",
     "ts": "node --loader ts-node/esm src/utils/dateUtils.ts",
-    "lint": "eslint . --ext .ts,.js"
+    "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "keywords": [],
   "author": "",
@@ -28,6 +29,7 @@
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
     "nodemon": "^3.1.11",
+    "prettier": "^3.7.4",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",

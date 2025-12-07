@@ -1,4 +1,3 @@
-
 /**
  * The service layer is a middle layer between your controller and database.
 Right now it seems redundant because getAllEvents() just calls getAll(). 
@@ -17,27 +16,27 @@ filter — that logic belongs in the service, not the controller or db.
  * 
  */
 
-
-import { getAllFromDB, deleteEventFromDB, createFromDB } from "../db/events";
-import { CreateEventDTO, Event } from '../types/index'
-import { isWithinLocalDate } from "../utils/dateUtils";
+import { getAllFromDB, deleteEventFromDB, createFromDB } from '../db/events';
+import { CreateEventDTO, Event } from '../types/index';
+import { isWithinLocalDate } from '../utils/dateUtils';
 
 export function getAllEvents(): Event[] {
-    return getAllFromDB()
+  return getAllFromDB();
 }
-
 
 // todo this function is specific to a single date. maybe look into a more general function that is flexible
 export function getEventsByLocalDate(date: string, timezone: string): Event[] {
-    const events = getAllFromDB()
+  const events = getAllFromDB();
 
-    return events.filter(event => isWithinLocalDate(event.startTimeUTC, date, timezone))
+  return events.filter((event) =>
+    isWithinLocalDate(event.startTimeUTC, date, timezone)
+  );
 }
 
 export function createEvent(data: CreateEventDTO): Event {
-    return createFromDB(data.title, data.startTimeUTC)
+  return createFromDB(data.title, data.startTimeUTC);
 }
 
 export function deleteEvent(id: string): boolean {
-    return deleteEventFromDB(id)
+  return deleteEventFromDB(id);
 }

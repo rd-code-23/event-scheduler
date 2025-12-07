@@ -4,8 +4,8 @@ import router from './routes/events';
 
 const app = express();
 
-app.use(cors());           // Allow frontend to connect
-app.use(express.json());   // Parse JSON request bodies
+app.use(cors()); // Allow frontend to connect
+app.use(express.json()); // Parse JSON request bodies
 
 // Routes
 app.use('/api', router);
