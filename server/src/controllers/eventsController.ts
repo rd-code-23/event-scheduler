@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { GetEventsQueryInput, getEventsQuerySchema, CreateEventInput, createEventSchema, deleteEventSchema, DeleteEventsInput } from "../validators/eventValidator";
 import * as eventService from "../services/eventService";
 
-export function getEvents(req: Request<{}, {}, GetEventsQueryInput>, res: Response) {
+export function getEvents(req: Request<unknown, unknown, GetEventsQueryInput>, res: Response) {
     const { date, timezone } = req.query;
 
     const result = getEventsQuerySchema.safeParse({ date, timezone });
@@ -19,7 +19,7 @@ export function getEvents(req: Request<{}, {}, GetEventsQueryInput>, res: Respon
     return res.status(200).json(eventService.getAllEvents())
 };
 
-export function createEvent(req: Request<{}, {}, CreateEventInput>, res: Response) {
+export function createEvent(req: Request<unknown, unknown, CreateEventInput>, res: Response) {
     const { title, startTimeUTC } = req.body;
 
     const result = createEventSchema.safeParse({ title, startTimeUTC });
@@ -33,7 +33,7 @@ export function createEvent(req: Request<{}, {}, CreateEventInput>, res: Respons
     )))
 }
 
-export function deleteEvent(req: Request<DeleteEventsInput, {}, {}>, res: Response) {
+export function deleteEvent(req: Request<DeleteEventsInput, unknown, unknown>, res: Response) {
     const { id } = req.params; // DELETE requests typically use the URL: DELETE /api/events/:id   
 
     const result = deleteEventSchema.safeParse({ id });
