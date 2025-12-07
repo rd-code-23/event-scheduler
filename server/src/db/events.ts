@@ -1,4 +1,4 @@
-import { Event } from '../types/index';
+import { Event } from '@event-scheduler/shared';
 
 const events: Event[] = [];
 

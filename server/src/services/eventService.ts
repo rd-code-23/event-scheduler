@@ -17,7 +17,7 @@ filter — that logic belongs in the service, not the controller or db.
  */
 
 import { getAllFromDB, deleteEventFromDB, createFromDB } from '../db/events';
-import { CreateEventDTO, Event } from '../types/index';
+import { CreateEventDTO, Event } from '@event-scheduler/shared';
 import { isWithinLocalDate } from '../utils/dateUtils';
 
 export function getAllEvents(): Event[] {

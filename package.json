@@ -14,14 +14,14 @@
   "scripts": {
     "prepare": "husky"
   },
-  "lint-staged": {
-    "server/src/**/*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "client/src/**/*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  }
+"lint-staged": {
+  "server/src/**/*.ts": [
+    "eslint --config ./server/eslint.config.mjs --fix",
+    "prettier --config ./server/.prettierrc.json --write"
+  ],
+  "client/src/**/*.{ts,tsx}": [
+    "eslint --config ./client/eslint.config.js --fix",
+    "prettier --write"
+  ]
+}
 }
