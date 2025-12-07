@@ -1,6 +1,12 @@
 {
   "name": "event-scheduler",
   "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "shared"
+  ],
   "devDependencies": {
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7"
@@ -10,6 +16,10 @@
   },
   "lint-staged": {
     "server/src/**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "client/src/**/*.{ts,tsx}": [
       "eslint --fix",
       "prettier --write"
     ]
