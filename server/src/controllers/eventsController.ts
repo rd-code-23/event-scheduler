@@ -44,14 +44,12 @@ export function createEvent(
     return res.status(400).json({ error: result.error.message });
   }
 
-  return res
-    .status(201)
-    .json(
-      eventService.createEvent({
-        title: result.data.title,
-        startTimeUTC: result.data.startTimeUTC,
-      })
-    );
+  return res.status(201).json(
+    eventService.createEvent({
+      title: result.data.title,
+      startTimeUTC: result.data.startTimeUTC,
+    })
+  );
 }
 
 export function deleteEvent(
