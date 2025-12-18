@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "run:data-utils": "vite-node src/utils/dateUtils.ts"
   },
   "dependencies": {
     "@event-scheduler/shared": "*",
@@ -32,6 +33,7 @@
     "prettier": "^3.7.4",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.1",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vite-node": "^5.2.0"
   }
 }
